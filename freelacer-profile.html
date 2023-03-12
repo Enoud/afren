@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/fa0bcfb368.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    #topnav{
+        box-shadow: 0px 3px 5px rgba(175, 174, 174, 0.151);
+        /* padding-top: 0.5%; */
+        /* padding-bottom: 0.5%; */
+        padding-left: 2%;
+        padding-right: 10%;
+        margin-bottom: 2%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #F7FAFE;
+        display: flex;
+        align-items: center;
+    }
+    #navicon{
+        display: none;
+    }
+    ul{
+        width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        /* height: 80px; */
+        color: black;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        /* padding-left: 2%; */
+        /* padding-right: 2%; */
+        position: relative;
+    }
+    li{
+        float: left;
+        color: black;
+    }
+    #logo{
+        padding-top: 0;
+    }
+    span{
+        font-size: xx-large;
+        margin-top: 0;
+    }
+
+    li a, .dropbtn{
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* li a:hover, .dropdown:hover .dropbtn {
+        background-color: red;
+    } */
+
+    li.dropdown{
+        display: inline-block;
+    }
+
+    .dropdown-content{
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        max-width: 500px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        /* z-index: 1; */
+    }
+
+    .dropdown-content a{
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover{
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+    #navprofile{
+        float: right;
+        margin-right: 3%;
+        width: 4%;
+        padding-top: 0;
+    }
+    .bell-icon{
+        position: absolute;
+        left: 85%;
+        font-size: 20px;
+    }
+    #navprofile img{
+        width: 100%;
+    }
+    #navprofile-onlinetag{
+        position: absolute;
+        height: 5px;
+        width: 0.4%;
+        background-color: #34A853;
+        border-radius: 20px;
+        left: 96.3%;
+        z-index: 1;
+        top: 43px;
+    }
+    #whole-div{
+        display: flex;
+        width: 90%;
+        margin-left: 5%;
+        justify-content: space-between;
+    }
+    #profile{
+        width: 40%;
+        text-align: center;
+        box-shadow: 1px 5px 1px rgba(26, 23, 23, 0.171), -1px 1px 1px rgba(26, 23, 23, 0.171);
+        box-sizing: border-box;
+        color: gray;
+        padding-top: 3%;
+        position: relative;
+        padding-bottom: 3%;
+    }
+    #online-tag{
+        height: 20px;
+        color: #34A853;
+        width: 20%;
+        border-style: solid;
+        border-width: thin;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 15px;
+        box-sizing: border-box;
+        padding-left: 4%;
+        padding-right: 4%;
+        position: absolute;
+        left: 70%;
+    }
+    #dot{
+        height: 40%;
+        width: 10%;
+        background-color: #34A853;
+        border-radius: 20px;
+    }
+    #pic-outer-div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #pic-div{
+        width: 30%;
+        border-radius: 80px;
+    }
+    #pic-div img{
+        width: 100%;
+    }
+    .checked{
+        color: orange;
+    }
+    #name{
+        color: black;
+    }
+    #preview-button{
+        width: 80%;
+        height: 8%;
+        background-color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        color: grey;
+    }
+    #info-div{
+        display: flex;
+        justify-content: space-between;
+        text-align: initial;
+        margin-left: 10%;
+        margin-right: 10%;
+        color: grey;
+    }
+    #profile-questions div{
+        width: 52%;
+    }
+    .availability p{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .availability{
+        height: 30px;
+        margin-top: 40px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    #profile-answers{
+        text-align: end;
+        width: 40%;
+    }
+    #profile-answers button{
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        background-color: white;
+    }
+    #gigs-div{
+        width: 50%;
+        box-shadow: 1px 5px 1px rgba(26, 23, 23, 0.171), -1px 1px 1px rgba(26, 23, 23, 0.171);
+        box-sizing: border-box;
+    }
+    #gigs{
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        margin-left: 2.5%;
+        color: gray;
+        margin-top: 10%;
+    }
+    #title{
+        background-color: #f5f2f29d;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding-left: 5%;
+    }
+    #title h3{
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: normal;
+    }
+    .individual-gig{
+        width: 32%;
+    }
+    .individual-gig img{
+        width: 100%;
+    }
+    .prize{
+        text-align: center;
+        color: #34A853;
+        margin-top: 20%;
+    }
+    #new-gig{
+        width: 30%;
+        margin-left: 2.5%;
+        text-align: center;
+        margin-top: 10%;
+        color: gray;
+    }
+    #new-gig p{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #create-button-external{
+        display: flex;
+        justify-content: center;
+    }
+    #create-button{
+        background-color: #13AEAC;
+        color: white;
+        width: 25%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 190px;
+    }
+</style>
+<body>
+    <div id="topnav">
+        <ul>
+            <li>
+                <div id="navicon" class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" style="color: #015b7e;"><i class="fas fa-bars"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Find talent</a>
+                        <div class="dropdown1">
+                            <a href="javascript:void(0)" class="dropbtn">Find Work <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content2">
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                            </div>
+                        </div>
+                        <div class="dropdown1">
+                            <a href="javascript:void(0)" class="dropbtn">Services category<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content2">
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                            </div>
+                        </div>
+                        <div class="dropdown1">
+                            <a href="javascript:void(0)" class="dropbtn">Resources<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content2">
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                                <a href="#">list</a>
+                            </div>
+                        </div>
+                        <a href="">About</a>
+                    </div>
+                </div>
+            </li>
+            
+            <li style="font-family: poppins;"><a href=""  id="logo"><span style="color: #3ac3d6;">af</span><span style="color: #015b7e;">ren</span></a></li>
+            <div id="navcontent">
+                <li><a href="">Find Talent</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Find Work <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Services category <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Resources <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                        <a href="#">list</a>
+                    </div>
+                </li>
+                <li><a href="">About</a></li>
+                <li><a href=""><i class="fa fa-bell-o bell-icon" aria-hidden="true"></i></a></li>
+            </div>
+            <div id="navprofile"><img src="Afren/Ellipse 31.png" alt=""></div>
+            <div id="navprofile-onlinetag"></div>
+        </ul>
+    </div>
+    <div id="whole-div">
+        <div id="profile">
+            <div id="online-tag"><div id="dot"></div>Online</div>
+            <div id="pic-outer-div"><div id="pic-div"><img src="Afren/Ellipse 31.png" alt=""></div></div>
+            <h3 id="name">Svetlana Anyukova</h3>
+            <p id="review"><i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> 5 (reviews)</p>
+            <button id="preview-button">Preview Afren Profile</button>
+            <div id="info-div">
+                <div id="profile-questions">
+                    <p class="info"><i class="fa fa-map-marker" aria-hidden="true"></i> From</p>
+                    <p class="info"><i class="fa fa-user" aria-hidden="true"></i> Member since</p>
+                    <p class="info"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Avg Response Time</p>
+                    <p class="info"><i class="fa fa-bullseye" aria-hidden="true"></i> Last Delivery</p>
+                    <div class="availability"><p>Available</p></div>
+                </div>
+                <div id="profile-answers">
+                    <p class="info">United State</p>
+                    <p class="info">Dec 2022</p>
+                    <p class="info">1 hour</p>
+                    <p class="info">10 days</p>
+                    <div class="availability"><button>Set Availability</button></div>
+                </div>
+            </div>
+        </div>
+        <div id="gigs-div">
+            <div id="title"><h3>ACTIVE GIGS</h3></div>
+            <div id="gigs">
+                <div class="individual-gig">
+                    <div><img src="Afren/Rectangle 293.png" alt=""></div>
+                    <p>I will build your website and application </p>
+                    <div class="prize"><p>STARTING $80</p></div>
+                </div>
+                <div class="individual-gig">
+                    <div><img src="Afren/Rectangle 294.png" alt=""></div>
+                    <p>I will build your website and application </p>
+                    <div class="prize"><p>STARTING $80</p></div>
+                </div>
+                <div class="individual-gig">
+                    <div><img src="Afren/Rectangle 295.png" alt=""></div>
+                    <p>I will build your website and application </p>
+                    <div class="prize"><p>STARTING $80</p></div>
+                </div>
+            </div>
+            <div id="new-gig">
+                <div id="create-button-external"><div id="create-button"><p>+</p></div></div>
+                <p>Create a new Gig</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
